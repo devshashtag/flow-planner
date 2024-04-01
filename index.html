@@ -17,25 +17,20 @@
   <body>
     <main class="scheduler">
       <div class="container">
-        <ul class="nav nav-tabs">
-          <li class="nav-tab tab--active">Daily Tasks</li>
-          <li class="nav-tab">Weekly Tasks</li>
-          <li class="nav-tab">Monthly Tasks</li>
-          <li class="nav-tab">Habits</li>
-          <li class="nav-tab">Routines</li>
-          <li class="nav-tab">Expences</li>
-          <li class="nav-option">+</li>
-        </ul>
+        <!-- tabs -->
+        <nav class="nav">
+          <ul class="nav__tabs" id="tab-list"></ul>
+          <div class="nav__option">+</div>
+        </nav>
 
-        <!-- tasks -->
-        <div class="tasks">
+        <!-- items -->
+        <div class="items">
           <!-- list -->
-          <ul class="task__list" id="task-list"></ul>
-
+          <ul class="item__list" id="item-list"></ul>
           <!-- input -->
-          <div class="task__new">
-            <input type="text" class="task__title" id="task-title" />
-            <button class="task__add" id="task-add">add</button>
+          <div class="item__new">
+            <input type="text" class="item__title" id="item-title" />
+            <button class="item__add" id="item-add">add</button>
           </div>
         </div>
       </div>

@@ -1,9 +1,18 @@
-import { taskListTemplate } from '/assets/js/modules/template.js';
+import { generateTabsMarkup, generateItemsMarkup } from '/assets/js/modules/template.js';
+import { addItem, changeActiveTab } from '/assets/js/modules/functions.js';
 
-window.addEventListener('DOMContentLoaded', async function () {
-  const taskListElm = document.getElementById('task-list');
-  const taskListName = 'daily-tasks';
-  const taskList = await taskListTemplate(taskListName);
+window.addEventListener('DOMContentLoaded', function () {
+  const itemAddBtn = document.getElementById('item-add');
+  const tabListElm = document.getElementById('tab-list');
+  const itemListElm = document.getElementById('item-list');
 
-  taskListElm.innerHTML = taskList;
+  // load tabs, items
+  tabListElm.innerHTML = generateTabsMarkup();
+  itemListElm.innerHTML = generateItemsMarkup();
+
+  // add item listener
+  itemAddBtn.addEventListener('click', addItem);
+
+  // change active tab
+  tabListElm.addEventListener('click', changeActiveTab);
 });

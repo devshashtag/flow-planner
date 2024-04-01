@@ -14,21 +14,24 @@ main.scheduler {
   }
 
   // tabs
-  .nav.nav-tabs {
+  nav.nav {
     display: flex;
     align-items: center;
-
     background-color: $theme-gray;
     box-shadow: 0 0 1rem $theme-gray;
     padding: 0 1rem;
 
-    .nav-tab,
-    .nav-option {
+    .nav__tabs {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav__tab,
+    .nav__option {
       cursor: pointer;
       text-transform: capitalize;
-      padding: 1rem 2rem;
-
       white-space: nowrap;
+      padding: 1rem 2rem;
 
       &:hover {
         color: $theme-secondary;
@@ -36,21 +39,21 @@ main.scheduler {
       }
     }
 
-    .tab--active,
-    .tab--active:hover {
+    #active-tab,
+    #active-tab:hover {
       pointer-events: none;
       color: $theme-tertiary;
       background-color: $theme-enabled;
     }
 
-    .nav-option,
-    .nav-option:hover {
+    .nav__option,
+    .nav__option:hover {
       color: $theme-tertiary;
     }
   }
 
-  // tasks
-  .tasks {
+  // items
+  .items {
     flex: 1;
 
     display: flex;
@@ -67,7 +70,7 @@ main.scheduler {
     box-shadow: 0 0 1rem $theme-gray;
 
     // list
-    .task__list {
+    .item__list {
       flex: 1;
 
       display: flex;
@@ -84,36 +87,59 @@ main.scheduler {
     // item
     .list__item {
       cursor: default;
-      scroll-snap-align: start;
 
       display: flex;
       align-items: stretch;
 
-      background-color: $theme-gray-2;
+      scroll-snap-align: start;
+
+      background-color: unquote($theme-gray-4 + $theme-opacity);
 
       &::before {
-        content: attr(data-time);
+        content: attr(data-content);
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
 
-        background-color: $theme-white;
+        background-color: $theme-gray-4;
         color: $theme-black;
         padding: 0.7rem 1rem;
-        min-width: 6rem;
+        min-width: 8rem;
       }
 
+      .item__text {
+        flex: 1;
+
+        display: flex;
+        align-items: center;
+        padding: 0.7rem 1rem;
+      }
+
+      // types
       &.type__task {
         background-color: unquote($theme-white + $theme-opacity);
         color: $theme-white;
 
         &::before {
           background-color: $theme-white;
+          color: $theme-black;
         }
       }
 
-      &.type__done {
+      &.type__note {
+        background-color: unquote($theme-yellow + $theme-opacity);
+        color: $theme-yellow;
+
+        &::before {
+          content: '!';
+          background-color: $theme-yellow;
+          color: $theme-black;
+        }
+      }
+
+      // status
+      &.type__task.task--done {
         background-color: unquote($theme-green + $theme-opacity);
         color: $theme-green;
 
@@ -122,7 +148,7 @@ main.scheduler {
         }
       }
 
-      &.type__failed {
+      &.type__task.task--failed {
         background-color: unquote($theme-red + $theme-opacity);
         color: $theme-red;
 
@@ -130,37 +156,16 @@ main.scheduler {
           background-color: $theme-red;
         }
       }
-
-      &.type__note {
-        color: $theme-yellow;
-        background-color: unquote($theme-yellow + $theme-opacity);
-
-        &::before {
-          background-color: $theme-yellow;
-        }
-      }
-
-      + .task__sub {
-        margin-left: 6rem;
-      }
-
-      .task__text {
-        flex: 1;
-
-        display: flex;
-        align-items: center;
-        padding: 0.7rem 1rem;
-      }
     }
 
     // new
-    .task__new {
+    .item__new {
       display: flex;
       align-items: stretch;
 
       padding: 1rem;
 
-      .task__title {
+      .item__title {
         background-color: $theme-gray-2;
         color: $theme-foreground;
         font-size: 1.5rem;
@@ -174,7 +179,7 @@ main.scheduler {
         }
       }
 
-      .task__add {
+      .item__add {
         cursor: pointer;
 
         background-color: $theme-foreground;
