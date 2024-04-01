@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- title -->
+    <title>planner</title>
+
+    <!-- font awesome -->
+    <link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet" />
+
+    <!-- styles -->
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+  </head>
+
+  <body>
+    <main class="scheduler">
+      <div class="container">
+        <ul class="nav nav-tabs">
+          <li class="nav-tab tab--active">Daily Tasks</li>
+          <li class="nav-tab">Weekly Tasks</li>
+          <li class="nav-tab">Monthly Tasks</li>
+          <li class="nav-tab">Habits</li>
+          <li class="nav-tab">Routines</li>
+          <li class="nav-tab">Expences</li>
+          <li class="nav-option">+</li>
+        </ul>
+
+        <!-- tasks -->
+        <div class="tasks">
+          <!-- list -->
+          <ul class="task__list" id="task-list"></ul>
+
+          <!-- input -->
+          <div class="task__new">
+            <input type="text" class="task__title" id="task-title" />
+            <button class="task__add" id="task-add">add</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- scripts -->
+    <!-- <script src="/assets/js/script.js"></script> -->
+    <script type="module" src="/assets/js/index.js"></script>
+  </body>
+</html>

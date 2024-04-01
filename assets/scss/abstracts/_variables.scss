@@ -1,0 +1,40 @@
+//? colors
+$theme-gray: #202020;
+$theme-gray-1: #303030;
+$theme-gray-2: #404040;
+$theme-gray-3: #505050;
+$theme-gray-4: #606060;
+$theme-gray-5: #707070;
+$theme-gray-6: #808080;
+$theme-gray-7: #909090;
+$theme-gray-8: #a0a0a0;
+$theme-gray-9: #b0b0b0;
+
+$theme-black: #101010;
+$theme-white: #cfcfcf;
+$theme-red: #f45757;
+$theme-green: #60e082;
+$theme-yellow: #f8de9f;
+$theme-cyan: #a9f9f0;
+$theme-pink: #ea41ea;
+$theme-blue: #5480ef;
+
+// theme 1
+$theme-background: $theme-gray-1;
+$theme-foreground: $theme-white;
+
+$theme-primary: $theme-white;
+$theme-secondary: $theme-cyan;
+$theme-tertiary: $theme-green;
+
+$theme-warning: $theme-red;
+$theme-success: $theme-green;
+
+$theme-disabled: $theme-gray;
+$theme-enabled: $theme-gray-1;
+$theme-hover: $theme-gray-2;
+
+$theme-opacity: '20';
+
+//? sizes
+$section-max-width: 1980px;
