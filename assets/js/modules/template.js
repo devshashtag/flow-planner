@@ -1,36 +1,46 @@
-import { getStoredData } from '/assets/js/modules/functions.js';
+import { settings } from '/assets/js/index.js';
 
-function tabMarkup(tab) {
-  const tabName = tab.name;
-  const tabKey = tabName.replace(/\s+/g, '-').toLowerCase();
-  const isActive = tab.active ? ' id="active-tab"' : '';
+function getGroupElement(group) {
+  const element = document.createElement('li');
+  element.classList.add('nav__group');
+  element.dataset.id = group.id;
+  element.innerText = group.name;
 
-  return `
-      <!-- tab -->
-      <li class="nav__tab"${isActive} data-key="${tabKey}">${tabName}</li>
-    `;
+  if (group.active) element.id = 'active-group';
+
+  return element;
 }
 
-const itemMarkup = function (item) {
-  const status = item?.status ? ` ${item.type}--${item.status}` : '';
+function getItemElement(item) {
+  const element = document.createElement('li');
+  const textElement = document.createElement('div');
 
-  return `
-    <!-- item -->
-    <li class="list__item type__${item.type}${status}" data-content="${item.created.time}">
-      <div class="item__text">${item.title}</div>
-    </li>
-  `;
-};
+  // classes
+  textElement.classList.add('item__text');
+  element.classList.add('list__item');
+  element.classList.add(`type__${item.type}`);
+  if (item?.status) element.classList.add(`${item.type}--${item.status}`);
 
-function generateTabsMarkup(key = 'tabs') {
-  const data = getStoredData(key);
-  return data.map(tabMarkup).join('');
+  // content
+  element.dataset.content = item.created.time;
+
+  // text
+  textElement.innerText = item.title;
+
+  // add text to element
+  element.appendChild(textElement);
+
+  return element;
 }
 
-function generateItemsMarkup() {
-  const activeTabKey = document.getElementById('active-tab').dataset.key;
-  const data = getStoredData(activeTabKey);
-  return data.map(itemMarkup).join('');
+function getGroupElements() {
+  const groups = settings.getGroups();
+  return groups.map(getGroupElement);
 }
 
-export { generateTabsMarkup, generateItemsMarkup, tabMarkup, itemMarkup };
+function getItemElements() {
+  const items = settings.getItems();
+  return items.map(getItemElement);
+}
+
+export { getGroupElements, getItemElements, getGroupElement, getItemElement };

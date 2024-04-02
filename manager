@@ -7,7 +7,7 @@
 - export items
 - import items
 - daily items
-- make item list sortable
+- make item list sorgrouple
 - add animations
 -------------------------------------
 - add failed, note list
@@ -15,3 +15,4 @@
 - add image splitter to resume
 - fix responsive of items
 - add color for each item type and status
+- rename groups to groups

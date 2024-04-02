@@ -1,18 +1,20 @@
-import { generateTabsMarkup, generateItemsMarkup } from '/assets/js/modules/template.js';
-import { addItem, changeActiveTab } from '/assets/js/modules/functions.js';
+import { getGroupElements, getItemElements } from '/assets/js/modules/template.js';
+import { addItem, changeActiveGroup } from '/assets/js/modules/functions.js';
+import Settings from '/assets/js/modules/settings.js';
+
+export const settings = new Settings();
 
 window.addEventListener('DOMContentLoaded', function () {
   const itemAddBtn = document.getElementById('item-add');
-  const tabListElm = document.getElementById('tab-list');
+  const groupListElm = document.getElementById('group-list');
   const itemListElm = document.getElementById('item-list');
 
-  // load tabs, items
-  tabListElm.innerHTML = generateTabsMarkup();
-  itemListElm.innerHTML = generateItemsMarkup();
+  // load groups, items
+  groupListElm.replaceChildren(...getGroupElements());
+  itemListElm.replaceChildren(...getItemElements());
 
   // add item listener
   itemAddBtn.addEventListener('click', addItem);
-
-  // change active tab
-  tabListElm.addEventListener('click', changeActiveTab);
+  // change active group
+  groupListElm.addEventListener('click', changeActiveGroup);
 });
