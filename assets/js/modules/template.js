@@ -1,4 +1,4 @@
-import { settings } from '/assets/js/index.js';
+import { storage } from '/assets/js/index.js';
 
 function getInputElement(type = 'li') {
   const element = document.createElement(type);
@@ -41,12 +41,12 @@ function getItemElement(item) {
 }
 
 function getGroupElements() {
-  const groups = settings.getGroups();
+  const groups = storage.getGroups();
   return groups.map(getGroupElement);
 }
 
 function getItemElements() {
-  const items = settings.getItems();
+  const items = storage.getGroupItems();
   return items.map(getItemElement);
 }
 

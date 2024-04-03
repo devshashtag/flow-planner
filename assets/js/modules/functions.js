@@ -1,4 +1,4 @@
-import { settings } from '/assets/js/index.js';
+import { storage } from '/assets/js/index.js';
 import { getItemElements, getItemElement, getGroupElements, getInputElement } from '/assets/js/modules/template.js';
 
 // formating numbers by comma
@@ -30,6 +30,7 @@ function addGroup(e) {
   const target = e.target.tagName.toLowerCase() === 'span' ? e.target.parentNode : e.target;
   const addGroupBtn = document.getElementById('group-add');
   const groupListElm = document.getElementById('group-list');
+  const itemListElm = document.getElementById('item-list');
   const itemTitleInput = document.getElementById('item-title');
   const inputElm = getInputElement();
 
@@ -52,12 +53,18 @@ function addGroup(e) {
 
       const group = {
         name: name,
-        id: settings.config.counter.groups++,
+        id: storage.config.counters.groups++,
         active: true,
       };
 
-      settings.pushGroup(group);
+      storage.newGroup(group);
+
+      // reload groups after adding new group
       groupListElm.replaceChildren(...getGroupElements());
+
+      // reload items from new active group
+      itemListElm.replaceChildren(...getItemElements());
+
       itemTitleInput.focus();
     }
   });
@@ -68,11 +75,12 @@ function addItem() {
   const itemListElm = document.getElementById('item-list');
   const title = itemTitleInput.value;
   const date = getDate();
+  const groupId = storage.getActiveGroupId();
 
   // focus input
   itemTitleInput.focus();
 
-  if (!title.trim()) return;
+  if (!title.trim() || !groupId) return;
 
   // new item
   const item = {
@@ -82,7 +90,7 @@ function addItem() {
   };
 
   // save item
-  settings.pushItem(item);
+  storage.newItem(item);
 
   // render item
   const itemElement = getItemElement(item);
@@ -93,6 +101,7 @@ function addItem() {
 }
 
 function changeActiveGroup(e) {
+  const itemTitleInput = document.getElementById('item-title');
   const target = e.target;
 
   if (target.classList.contains('nav__group')) {
@@ -106,10 +115,12 @@ function changeActiveGroup(e) {
     target.id = 'active-group';
 
     // save active-group
-    settings.changeGroup(target.dataset.id);
+    storage.setActiveGroup(target.dataset.id);
 
     // reload items from new active group
     itemListElm.replaceChildren(...getItemElements());
+
+    itemTitleInput.focus();
   }
 }
 

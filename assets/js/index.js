@@ -1,8 +1,8 @@
 import { getGroupElements, getItemElements } from '/assets/js/modules/template.js';
 import { addGroup, addItem, changeActiveGroup } from '/assets/js/modules/functions.js';
-import Settings from '/assets/js/modules/settings.js';
+import Storage from '/assets/js/modules/storage.js';
 
-export const settings = new Settings();
+export const storage = new Storage();
 
 window.addEventListener('DOMContentLoaded', function () {
   const addItemBtn = document.getElementById('item-add');

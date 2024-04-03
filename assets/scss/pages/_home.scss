@@ -54,10 +54,18 @@ main.scheduler {
       color: $theme-tertiary;
     }
 
-    .close-btn span {
-      display: inline-block;
-      transform: rotate(45deg);
-      color: $theme-red;
+    .close-btn {
+      background-color: $theme-cyan;
+
+      &:hover {
+        background-color: $theme-cyan;
+      }
+
+      span {
+        display: inline-block;
+        transform: rotate(45deg);
+        color: $theme-red;
+      }
     }
 
     .nav__option:hover {
