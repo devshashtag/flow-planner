@@ -5,41 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- title -->
-    <title>planner</title>
-
-    <!-- font awesome -->
-    <link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet" />
+    <title>planB</title>
 
     <!-- styles -->
     <link rel="stylesheet" href="/assets/css/styles.css" />
   </head>
 
   <body>
-    <main class="scheduler">
-      <div class="container">
-        <!-- groups -->
-        <nav class="nav">
-          <ul class="nav__groups" id="group-list"></ul>
-          <button class="nav__option" id="group-add"><span>+</span></button>
-        </nav>
-
-        <!-- items -->
-        <div class="items">
-          <div class="items__container">
-            <!-- list -->
-            <ul class="item__list" id="item-list"></ul>
-            <!-- input -->
-            <div class="item__new">
-              <input type="text" class="item__title" id="item-title" autocomplete="off" />
-              <button class="item__add" id="item-add">add</button>
-            </div>
+    <!-- header -->
+    <header class="header">
+      <!-- groups -->
+      <div class="header__groups">
+        <!-- list -->
+        <ul class="groups__list" id="groups-nav"></ul>
+        <!-- options -->
+        <div class="groups__options">
+          <!-- new -->
+          <div class="options__new">
+            <input id="group-name" type="text" autocomplete="off" />
+            <button id="group-new"><span>+</span></button>
           </div>
         </div>
       </div>
+    </header>
+
+    <!-- main -->
+    <main class="main">
+      <!-- items -->
+      <section class="main__items">
+        <!-- list -->
+        <ul class="items__list" id="items-nav"></ul>
+        <!-- options -->
+        <div class="items__options">
+          <!-- new -->
+          <div class="options__new">
+            <input id="item-name" type="text" autocomplete="off" />
+            <button id="item-new"><span>+</span></button>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- scripts -->
-    <!-- <script src="/assets/js/script.js"></script> -->
     <script type="module" src="/assets/js/index.js"></script>
   </body>
 </html>
