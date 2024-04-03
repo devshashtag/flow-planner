@@ -1,40 +1,35 @@
-//? colors
-$theme-gray: #202020;
-$theme-gray-1: #303030;
-$theme-gray-2: #404040;
-$theme-gray-3: #505050;
-$theme-gray-4: #606060;
-$theme-gray-5: #707070;
-$theme-gray-6: #808080;
-$theme-gray-7: #909090;
-$theme-gray-8: #a0a0a0;
-$theme-gray-9: #b0b0b0;
-
-$theme-black: #101010;
+// colors
 $theme-white: #cfcfcf;
 $theme-red: #f45757;
 $theme-green: #60e082;
 $theme-yellow: #f8de9f;
 $theme-cyan: #93f9e9;
 $theme-pink: #ea41ea;
-$theme-blue: #88a7f4;
+$theme-blue: #759af7;
 
-// theme 1
-$theme-background: $theme-gray-1;
+// black
+$theme-black: #0d0d0d;
+$theme-black-1: #101010;
+
+// gray
+$theme-gray: #252525;
+
+// default theme
+$theme-background: $theme-gray;
 $theme-foreground: $theme-white;
 
-$theme-primary: $theme-white;
-$theme-secondary: $theme-cyan;
-$theme-tertiary: $theme-green;
+// interface
+$theme-input: $theme-cyan;
+$theme-btn: $theme-white;
 
-$theme-warning: $theme-red;
-$theme-success: $theme-green;
+// types
+$theme-task: $theme-white;
+$theme-failed: $theme-red;
+$theme-done: $theme-green;
 
-$theme-disabled: $theme-gray;
-$theme-enabled: $theme-gray-1;
-$theme-hover: $theme-gray-2;
+$theme-note: $theme-yellow;
 
+// sizes
 $theme-opacity: '20';
 
-//? sizes
-$section-max-width: 1980px;
+$app-max-width: 1980px;
