@@ -1,5 +1,5 @@
 import { settings } from '/assets/js/index.js';
-import { getItemElements, getItemElement } from '/assets/js/modules/template.js';
+import { getItemElements, getItemElement, getGroupElements, getInputElement } from '/assets/js/modules/template.js';
 
 // formating numbers by comma
 function commafy(num) {
@@ -24,6 +24,43 @@ function getDate(timeZone = 'Asia/tehran') {
   const time = localTime[1].split(':').slice(0, -1).join(':');
 
   return { date, time };
+}
+
+function addGroup(e) {
+  const target = e.target.tagName.toLowerCase() === 'span' ? e.target.parentNode : e.target;
+  const addGroupBtn = document.getElementById('group-add');
+  const groupListElm = document.getElementById('group-list');
+  const itemTitleInput = document.getElementById('item-title');
+  const inputElm = getInputElement();
+
+  if (target.classList.contains('close-btn')) {
+    const inputElm = document.querySelector('.interactive-input');
+    addGroupBtn.classList.remove('close-btn');
+    groupListElm.removeChild(inputElm);
+    return;
+  }
+
+  addGroupBtn.classList.add('close-btn');
+  groupListElm.appendChild(inputElm);
+  inputElm.focus();
+
+  inputElm.addEventListener('keypress', function (e) {
+    const name = inputElm.innerText.trim();
+    if (e.key === 'Enter' && name !== '') {
+      groupListElm.removeChild(inputElm);
+      addGroupBtn.classList.remove('close-btn');
+
+      const group = {
+        name: name,
+        id: settings.config.counter.groups++,
+        active: true,
+      };
+
+      settings.pushGroup(group);
+      groupListElm.replaceChildren(...getGroupElements());
+      itemTitleInput.focus();
+    }
+  });
 }
 
 function addItem() {
@@ -69,11 +106,11 @@ function changeActiveGroup(e) {
     target.id = 'active-group';
 
     // save active-group
-    settings.changeGroup(+target.dataset.id);
+    settings.changeGroup(target.dataset.id);
 
     // reload items from new active group
     itemListElm.replaceChildren(...getItemElements());
   }
 }
 
-export { getDate, addItem, changeActiveGroup };
+export { getDate, addGroup, addItem, changeActiveGroup };

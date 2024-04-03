@@ -5,17 +5,16 @@ class Settings {
 
   load() {
     const defaultConfig = {
-      counter: {
-        groups: 1,
-        items: 1,
-      },
       groups: [],
+      items: {},
       types: {
         task: {
           status: ['done', 'failed'],
         },
       },
-      items: {},
+      counter: {
+        groups: 1,
+      },
     };
 
     const data = localStorage.getItem('config');
@@ -29,7 +28,7 @@ class Settings {
   changeGroup(id) {
     for (const group of this.config.groups) {
       if (group.active) delete group.active;
-      if (group.id === id) group.active = true;
+      if (group.id === +id) group.active = true;
     }
 
     this.save();
@@ -37,7 +36,7 @@ class Settings {
 
   getGroupId() {
     for (const group of this.config.groups) {
-      if (group.active) return group.id;
+      if (group.active) return +group.id;
     }
   }
 
@@ -47,6 +46,18 @@ class Settings {
 
   getItems() {
     return this.config.items[this.getGroupId()] || [];
+  }
+
+  pushGroup(group) {
+    if (group.active) {
+      // remove active group
+      for (const group of this.config.groups) {
+        if (group.active) delete group.active;
+      }
+    }
+
+    this.config.groups.push(group);
+    this.save();
   }
 
   pushItem(item) {

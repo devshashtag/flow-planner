@@ -1,11 +1,18 @@
 import { settings } from '/assets/js/index.js';
 
+function getInputElement(type = 'li') {
+  const element = document.createElement(type);
+  element.classList.add('interactive-input');
+  element.contentEditable = true;
+
+  return element;
+}
+
 function getGroupElement(group) {
   const element = document.createElement('li');
   element.classList.add('nav__group');
   element.dataset.id = group.id;
   element.innerText = group.name;
-
   if (group.active) element.id = 'active-group';
 
   return element;
@@ -43,4 +50,4 @@ function getItemElements() {
   return items.map(getItemElement);
 }
 
-export { getGroupElements, getItemElements, getGroupElement, getItemElement };
+export { getGroupElements, getItemElements, getGroupElement, getItemElement, getInputElement };

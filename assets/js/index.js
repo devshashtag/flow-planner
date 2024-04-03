@@ -1,11 +1,13 @@
 import { getGroupElements, getItemElements } from '/assets/js/modules/template.js';
-import { addItem, changeActiveGroup } from '/assets/js/modules/functions.js';
+import { addGroup, addItem, changeActiveGroup } from '/assets/js/modules/functions.js';
 import Settings from '/assets/js/modules/settings.js';
 
 export const settings = new Settings();
 
 window.addEventListener('DOMContentLoaded', function () {
-  const itemAddBtn = document.getElementById('item-add');
+  const addItemBtn = document.getElementById('item-add');
+  const itemTitleInput = document.getElementById('item-title');
+  const addGroupBtn = document.getElementById('group-add');
   const groupListElm = document.getElementById('group-list');
   const itemListElm = document.getElementById('item-list');
 
@@ -13,8 +15,15 @@ window.addEventListener('DOMContentLoaded', function () {
   groupListElm.replaceChildren(...getGroupElements());
   itemListElm.replaceChildren(...getItemElements());
 
-  // add item listener
-  itemAddBtn.addEventListener('click', addItem);
+  // add group
+  addGroupBtn.addEventListener('click', addGroup);
+
+  // add item
+  addItemBtn.addEventListener('click', addItem);
+  itemTitleInput.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') addItem();
+  });
+
   // change active group
   groupListElm.addEventListener('click', changeActiveGroup);
 });

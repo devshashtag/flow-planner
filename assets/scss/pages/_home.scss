@@ -49,7 +49,17 @@ main.scheduler {
       background-color: $theme-enabled;
     }
 
-    .nav__option,
+    .nav__option {
+      position: relative;
+      color: $theme-tertiary;
+    }
+
+    .close-btn span {
+      display: inline-block;
+      transform: rotate(45deg);
+      color: $theme-red;
+    }
+
     .nav__option:hover {
       color: $theme-tertiary;
     }
@@ -66,6 +76,7 @@ main.scheduler {
     display: flex;
     flex-direction: column;
     height: 100%;
+    max-height: 100rem;
     max-width: 100rem;
     margin-inline: auto;
     background-color: $theme-gray;
