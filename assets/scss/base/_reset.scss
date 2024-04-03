@@ -79,8 +79,3 @@ button {
 .no-select:focus {
   outline: none !important;
 }
-
-button,
-div {
-  @extend .no-select;
-}

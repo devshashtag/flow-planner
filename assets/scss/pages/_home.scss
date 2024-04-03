@@ -28,6 +28,8 @@ main.scheduler {
 
     .nav__group,
     .nav__option {
+      @extend .no-select;
+
       cursor: pointer;
       text-transform: capitalize;
       white-space: nowrap;
@@ -183,6 +185,7 @@ main.scheduler {
       }
 
       .item__add {
+        @extend .no-select;
         cursor: pointer;
 
         background-color: $theme-foreground;
