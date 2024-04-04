@@ -10,17 +10,36 @@ $theme-blue: #759af7;
 // black
 $theme-black: #0d0d0d;
 $theme-black-1: #101010;
+$theme-black-2: #1a1a1a;
+$theme-black-3: #202020;
 
 // gray
 $theme-gray: #252525;
+$theme-gray-1: #2a2a2a;
+$theme-gray-2: #303030;
+$theme-gray-3: #404040;
+$theme-gray-4: #505050;
+$theme-gray-5: #606060;
+$theme-gray-6: #707070;
+$theme-gray-7: #808080;
+$theme-gray-8: #909090;
+$theme-gray-9: #a0a0a0;
 
 // default theme
-$theme-background: $theme-gray;
+$theme-background: $theme-gray-3;
 $theme-foreground: $theme-white;
 
 // interface
+$theme-header: $theme-black-3;
+
+$theme-scrollbar: $theme-white;
+$theme-scrollbar-bg: $theme-gray;
+
 $theme-input: $theme-cyan;
-$theme-btn: $theme-white;
+$theme-button: $theme-cyan;
+
+$theme-hover: $theme-cyan;
+$theme-hover-bg: $theme-gray-2;
 
 // types
 $theme-task: $theme-white;

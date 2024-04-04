@@ -28,6 +28,7 @@ button {
   padding: 0;
   width: auto;
   overflow: visible;
+  @extend .no-select;
 
   background: transparent;
 
@@ -47,23 +48,26 @@ button {
 }
 
 ::-webkit-scrollbar {
-  background-color: $theme-gray-2;
+  background-color: $theme-scrollbar-bg;
   color: #bcb4a8;
   height: 0.6rem;
   width: 0.8rem;
 }
 
 ::-webkit-scrollbar-corner {
-  background-color: $theme-gray;
+  background-color: $theme-scrollbar-bg;
 }
+
 ::-webkit-scrollbar-thumb {
-  background-color: $theme-white;
+  background-color: $theme-scrollbar;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  background-color: $theme-white;
+  background-color: $theme-scrollbar;
 }
+
 ::-webkit-scrollbar-thumb:active {
-  background-color: $theme-white;
+  background-color: $theme-scrollbar;
 }
 
 .no-select {

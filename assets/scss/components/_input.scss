@@ -1,0 +1,26 @@
+.input-text {
+  display: inline-block;
+  color: $theme-foreground;
+  background-color: unset;
+  text-transform: inherit;
+  white-space: nowrap;
+  font-size: inherit;
+  outline: 1px solid $theme-input;
+  outline-offset: 0.8rem;
+  margin: 1rem;
+  width: 100%;
+  min-width: 8rem;
+  max-width: 20rem;
+  overflow: hidden;
+}
+
+.button-default {
+  cursor: pointer;
+  padding: 1rem 2rem;
+  transition: background-color 0.2s linear;
+  color: $theme-button;
+
+  &:hover {
+    background-color: $theme-hover-bg;
+  }
+}
