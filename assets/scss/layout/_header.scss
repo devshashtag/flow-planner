@@ -1,12 +1,12 @@
 header.header {
   background-color: $theme-header;
-  box-shadow: 0 0 1rem $theme-header;
+  box-shadow: 0 0 1rem $theme-header-shadow;
 
   // groups
   .header__groups {
     max-width: $app-max-width;
     margin-inline: auto;
-    padding: 0 2rem;
+    padding: 0 1rem;
 
     text-transform: capitalize;
     white-space: nowrap;
@@ -26,13 +26,21 @@ header.header {
   .list__group {
     cursor: pointer;
     padding: 1rem 2rem;
-    transition: background-color 0.2s linear;
+    transition: background-color $theme-transition linear;
     @extend .no-select;
 
     &:hover {
-      color: $theme-hover;
-      background-color: $theme-hover-bg;
+      color: $theme-group-hover-fg;
+      background-color: $theme-group-hover;
     }
+  }
+
+  // active group
+  #group-active,
+  #group-active:hover {
+    pointer-events: none;
+    color: $theme-group-active-fg;
+    background-color: $theme-group-active;
   }
 
   // options
@@ -46,6 +54,10 @@ header.header {
   .options__new {
     display: flex;
     align-items: center;
+
+    .input-responsive {
+      max-width: 20rem;
+    }
   }
 }
 

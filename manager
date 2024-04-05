@@ -1,20 +1,19 @@
-- fix item time
-- add calendar
-- create groups for items
-- add item
-- save items to local storage
-- restore items
+- fix responsive of items
 - export items
 - import items
-- daily items
-- make item list sorgrouple
-- add animations
--------------------------------------
+- add calendar
+~ add animations
+- remove devconfig at end
+
+--------------------------------
+
++ fix item time
++ add item
++ create groups for items
++ save items to local storage
 + add failed, note list
-- add type for creating items
-- add image splitter to resume
-- fix responsive of items
-- add color for each item type and status
-- rename groups to groups
-- move events to a file
-- move ui controls to a file
++ add type for creating items
++ add color for each item type and status
++ rename tabs to groups
++ move events to a file
++ move ui controls to a file

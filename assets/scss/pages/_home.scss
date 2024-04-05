@@ -1,5 +1,130 @@
 main.main {
+  height: 100%;
+  overflow-y: hidden;
+
+  // container
+  .main__container {
+    height: 100%;
+    max-width: $app-max-width;
+    margin-inline: auto;
+    padding: 3rem 2rem;
+  }
+
   // items
+  .main__items {
+    height: 100%;
+    max-height: 100rem;
+    max-width: 100rem;
+    margin-inline: auto;
+
+    background-color: $theme-items;
+    box-shadow: 0 0 1rem $theme-items-shadow;
+
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+
+  // list
+  .items__list {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    scroll-snap-type: y proximity;
+    scroll-padding: 0.5rem;
+
+    overflow: auto;
+    padding: 1rem;
+  }
+
+  // item
+  .list__item {
+    display: flex;
+    scroll-snap-align: start;
+
+    &::before,
+    &::after {
+      content: attr(data-content);
+      cursor: pointer;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background-color: $theme-item-content;
+      color: $theme-item-content-fg;
+      padding: 0.7rem 2rem;
+      min-width: 8rem;
+    }
+
+    &::after {
+      content: attr(data-date);
+    }
+
+    .item__text {
+      display: flex;
+      align-items: center;
+      padding: 0.7rem 1rem;
+      width: 100%;
+    }
+
+    // types
+    &.type__task {
+      background-color: $theme-task-op;
+      color: $theme-task;
+
+      &::before,
+      &::after {
+        background-color: $theme-task;
+      }
+    }
+
+    &.type__note {
+      background-color: $theme-note-op;
+      color: $theme-note;
+
+      &::before,
+      &::after {
+        background-color: $theme-note;
+      }
+    }
+
+    // status
+    &.type__task.task--done {
+      background-color: $theme-task-done-op;
+      color: $theme-task-done;
+
+      &::before,
+      &::after {
+        background-color: $theme-task-done;
+      }
+    }
+
+    &.type__task.task--failed {
+      background-color: $theme-task-failed-op;
+      color: $theme-task-failed;
+
+      &::before,
+      &::after {
+        background-color: $theme-task-failed;
+      }
+    }
+  }
+
+  // input
+  .items__input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    overflow: hidden;
+    margin: 1rem;
+  }
 }
 
 //   // items
@@ -37,78 +162,6 @@ main.main {
 //       padding: 1rem;
 //     }
 
-//     // item
-//     .list__item {
-//       cursor: default;
-
-//       display: flex;
-//       align-items: stretch;
-
-//       scroll-snap-align: start;
-
-//       background-color: unquote($theme-gray-4 + $theme-opacity);
-
-//       &::before {
-//         content: attr(data-content);
-//         cursor: pointer;
-//         display: flex;
-//         align-items: center;
-//         justify-content: center;
-
-//         background-color: $theme-gray-4;
-//         color: $theme-black;
-//         padding: 0.7rem 1rem;
-//         min-width: 8rem;
-//       }
-
-//       .item__text {
-//         flex: 1;
-
-//         display: flex;
-//         align-items: center;
-//         padding: 0.7rem 1rem;
-//       }
-
-//       // types
-//       &.type__task {
-//         background-color: unquote($theme-white + $theme-opacity);
-//         color: $theme-white;
-
-//         &::before {
-//           background-color: $theme-white;
-//           color: $theme-black;
-//         }
-//       }
-
-//       &.type__note {
-//         background-color: unquote($theme-yellow + $theme-opacity);
-//         color: $theme-yellow;
-
-//         &::before {
-//           content: '!';
-//           background-color: $theme-yellow;
-//           color: $theme-black;
-//         }
-//       }
-
-//       // status
-//       &.type__task.task--done {
-//         background-color: unquote($theme-green + $theme-opacity);
-//         color: $theme-green;
-
-//         &::before {
-//           background-color: $theme-green;
-//         }
-//       }
-
-//       &.type__task.task--failed {
-//         background-color: unquote($theme-red + $theme-opacity);
-//         color: $theme-red;
-
-//         &::before {
-//           background-color: $theme-red;
-//         }
-//       }
 //     }
 
 //     // new
@@ -120,7 +173,7 @@ main.main {
 
 //       .item__title {
 //         background-color: $theme-gray-2;
-//         color: $theme-foreground;
+//         color: $theme-fg;
 //         font-size: 1.5rem;
 //         padding: 1rem;
 //         width: 100%;
@@ -136,7 +189,7 @@ main.main {
 //         @extend .no-select;
 //         cursor: pointer;
 
-//         background-color: $theme-foreground;
+//         background-color: $theme-fg;
 //         color: $theme-gray;
 //         padding-inline: 2rem;
 //         text-transform: capitalize;

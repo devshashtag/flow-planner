@@ -1,26 +1,65 @@
-.input-text {
-  display: inline-block;
-  color: $theme-foreground;
-  background-color: unset;
-  text-transform: inherit;
+// inputs
+.input-responsive,
+.input-default {
+  text-transform: capitalize;
   white-space: nowrap;
   font-size: inherit;
-  outline: 1px solid $theme-input;
-  outline-offset: 0.8rem;
-  margin: 1rem;
-  width: 100%;
-  min-width: 8rem;
-  max-width: 20rem;
   overflow: hidden;
+  color: inherit;
+  width: 100%;
+
+  min-width: 8rem;
 }
 
+.input-responsive {
+  outline: 1px solid $theme-input-responsive-outline;
+  outline-offset: 0.9rem;
+  overflow: hidden;
+  min-width: 0;
+
+  transition: all $theme-transition linear;
+  visibility: hidden;
+  opacity: 0;
+
+  &.input-show {
+    margin: 1rem;
+    min-width: 8rem;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.input-default {
+  background-color: $theme-input-default;
+  padding: 1rem;
+}
+
+// buttons
+.button-responsive,
 .button-default {
   cursor: pointer;
   padding: 1rem 2rem;
-  transition: background-color 0.2s linear;
+  transition: all $theme-transition linear;
+
   color: $theme-button;
+}
+
+.button-responsive:hover {
+  background-color: $theme-button-responsive-hover;
+}
+
+.button-responsive span {
+  display: inline-block;
+}
+
+.button-responsive.btn-close span {
+  transform: rotate(45deg);
+}
+
+.button-default {
+  background-color: $theme-button-default;
 
   &:hover {
-    background-color: $theme-hover-bg;
+    background-color: $theme-button-default-hover;
   }
 }

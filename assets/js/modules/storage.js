@@ -1,3 +1,5 @@
+import { getDate } from '/assets/js/modules/functions.js';
+
 class Storage {
   constructor() {
     const config = {
@@ -66,6 +68,44 @@ class Storage {
     groupItems.push(item);
 
     this.setGroupItems(groupItems);
+    this.saveConfig();
+  }
+
+  devConfig() {
+    this.config = {
+      groups: [],
+      items: {},
+      types: {
+        task: {
+          status: ['done', 'failed'],
+        },
+      },
+      counters: {
+        groups: 6,
+      },
+    };
+
+    const groups = [
+      { name: 'Daily Tasks', id: 1, active: true },
+      { name: 'Weekly Tasks', id: 2 },
+      { name: 'Monthly Tasks', id: 3 },
+      { name: 'Habits', id: 4 },
+      { name: 'Routines', id: 5 },
+    ];
+
+    groups.forEach((group) => this.newGroup(group));
+
+    this.config.items[1] = [
+      { type: 'task', created: getDate(), text: 'Normal Task' },
+      { type: 'task', created: getDate(), text: 'Normal Task' },
+      { type: 'task', created: getDate(), text: 'Task Done', status: 'done' },
+      { type: 'task', created: getDate(), text: 'Task Done', status: 'done' },
+      { type: 'task', created: getDate(), text: 'Task Failed', status: 'failed' },
+      { type: 'task', created: getDate(), text: 'Task Failed', status: 'failed' },
+      { type: 'note', created: getDate(), text: 'Note' },
+      { type: 'note', created: getDate(), text: 'Note' },
+    ];
+
     this.saveConfig();
   }
 }

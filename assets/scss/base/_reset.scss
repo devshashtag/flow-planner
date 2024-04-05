@@ -48,26 +48,25 @@ button {
 }
 
 ::-webkit-scrollbar {
-  background-color: $theme-scrollbar-bg;
-  color: #bcb4a8;
-  height: 0.6rem;
+  background-color: $theme-scrollbar;
+  height: 0.8rem;
   width: 0.8rem;
 }
 
 ::-webkit-scrollbar-corner {
-  background-color: $theme-scrollbar-bg;
+  background-color: $theme-scrollbar;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: $theme-scrollbar;
+  background-color: $theme-scrollbar-bar;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: $theme-scrollbar;
+  background-color: $theme-scrollbar-bar;
 }
 
 ::-webkit-scrollbar-thumb:active {
-  background-color: $theme-scrollbar;
+  background-color: $theme-scrollbar-bar;
 }
 
 .no-select {

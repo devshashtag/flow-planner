@@ -1,5 +1,10 @@
+// sizes
+$theme-opacity: '20';
+$app-max-width: 1980px;
+$theme-transition: 0.2s;
+
 // colors
-$theme-white: #cfcfcf;
+$theme-white: #dadada;
 $theme-red: #f45757;
 $theme-green: #60e082;
 $theme-yellow: #f8de9f;
@@ -26,29 +31,58 @@ $theme-gray-8: #909090;
 $theme-gray-9: #a0a0a0;
 
 // default theme
-$theme-background: $theme-gray-3;
-$theme-foreground: $theme-white;
-
 // interface
+$theme-bg: $theme-gray-2;
+$theme-fg: $theme-white;
+
+// hover
+$theme-hover: $theme-gray-2;
+
+// scrollbar
+$theme-scrollbar: transparent;
+$theme-scrollbar-bar: $theme-white;
+
+// header
 $theme-header: $theme-black-3;
+$theme-header-shadow: $theme-black-3;
 
-$theme-scrollbar: $theme-white;
-$theme-scrollbar-bg: $theme-gray;
+// group
+$theme-group-hover: $theme-hover;
+$theme-group-hover-fg: $theme-cyan;
 
-$theme-input: $theme-cyan;
-$theme-button: $theme-cyan;
+$theme-group-active: $theme-gray-3;
+$theme-group-active-fg: $theme-yellow;
 
-$theme-hover: $theme-cyan;
-$theme-hover-bg: $theme-gray-2;
+// items
+$theme-items: $theme-black-3;
+$theme-items-shadow: $theme-black-3;
+
+// list
+// item
+$theme-item-content: $theme-gray-4;
+$theme-item-content-fg: $theme-black;
+
+// items input
+$theme-items-input: $theme-gray;
+
+// inputs, buttons
+$theme-button: $theme-green;
+
+$theme-input-responsive-outline: $theme-cyan;
+$theme-input-default: $theme-gray-2;
+
+$theme-button-responsive-hover: $theme-hover;
+$theme-button-default: $theme-input-default;
+$theme-button-default-hover: $theme-gray-3;
 
 // types
+// task
 $theme-task: $theme-white;
-$theme-failed: $theme-red;
-$theme-done: $theme-green;
-
+$theme-task-op: unquote($theme-white + $theme-opacity);
+$theme-task-failed: $theme-red;
+$theme-task-failed-op: unquote($theme-red + $theme-opacity);
+$theme-task-done: $theme-green;
+$theme-task-done-op: unquote($theme-green + $theme-opacity);
+// note
 $theme-note: $theme-yellow;
-
-// sizes
-$theme-opacity: '20';
-
-$app-max-width: 1980px;
+$theme-note-op: unquote($theme-yellow + $theme-opacity);
