@@ -48,7 +48,7 @@ main.main {
 
       &::before,
       &::after {
-        content: attr(data-content);
+        content: attr(data-time);
         cursor: pointer;
 
         display: flex;

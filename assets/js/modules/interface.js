@@ -137,7 +137,7 @@ class Interface {
         // add new group
         const group = {
           name: name,
-          id: storage.config.counters.groups++,
+          id: storage.getGroupId(),
           active: true,
         };
 
@@ -167,6 +167,7 @@ class Interface {
 
     // new item
     const item = {
+      id: storage.getItemId(),
       text: text,
       type: type,
       status: status,
@@ -208,9 +209,10 @@ class Interface {
     if (item.status) element.classList.add(`${item.type}--${item.status}`);
     textElement.classList.add('item__text');
 
-    // content
-    element.dataset.content = item.created.time;
+    // item data
+    element.dataset.time = item.created.time;
     element.dataset.date = item.created.date;
+    element.dataset.id = item.id;
 
     // text
     textElement.innerText = item.text;

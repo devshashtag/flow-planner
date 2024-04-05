@@ -13,6 +13,7 @@ class Storage {
       ],
       counters: {
         groups: 1,
+        items: 1,
       },
     };
 
@@ -22,6 +23,14 @@ class Storage {
 
   saveConfig() {
     localStorage.setItem('config', JSON.stringify(this.config));
+  }
+
+  getGroupId() {
+    return this.config.counters.groups++;
+  }
+
+  getItemId() {
+    return this.config.counters.items++;
   }
 
   getGroups() {
@@ -83,6 +92,7 @@ class Storage {
       },
       counters: {
         groups: 6,
+        items: 9,
       },
     };
 
@@ -97,14 +107,14 @@ class Storage {
     groups.forEach((group) => this.newGroup(group));
 
     this.config.items[1] = [
-      { type: 'task', created: getDate(), text: 'Normal Task' },
-      { type: 'task', created: getDate(), text: 'Normal Task' },
-      { type: 'task', created: getDate(), text: 'Task Done', status: 'done' },
-      { type: 'task', created: getDate(), text: 'Task Done', status: 'done' },
-      { type: 'task', created: getDate(), text: 'Task Failed', status: 'failed' },
-      { type: 'task', created: getDate(), text: 'Task Failed', status: 'failed' },
-      { type: 'note', created: getDate(), text: 'Note' },
-      { type: 'note', created: getDate(), text: 'Note' },
+      { id: 1, type: 'task', created: getDate(), text: 'Normal Task' },
+      { id: 2, type: 'task', created: getDate(), text: 'Normal Task' },
+      { id: 3, type: 'task', created: getDate(), text: 'Task Done', status: 'done' },
+      { id: 4, type: 'task', created: getDate(), text: 'Task Done', status: 'done' },
+      { id: 5, type: 'task', created: getDate(), text: 'Task Failed', status: 'failed' },
+      { id: 6, type: 'task', created: getDate(), text: 'Task Failed', status: 'failed' },
+      { id: 7, type: 'note', created: getDate(), text: 'Note' },
+      { id: 8, type: 'note', created: getDate(), text: 'Note' },
     ];
 
     this.saveConfig();
