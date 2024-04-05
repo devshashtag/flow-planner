@@ -108,14 +108,14 @@ class Storage {
     groups.forEach((group) => this.newGroup(group));
 
     this.config.items[1] = [
-      { id: 1, type: 'task', created: getDate(), text: 'normal task' },
-      { id: 2, type: 'task', created: getDate(), text: 'normal task' },
-      { id: 3, type: 'task', created: getDate(), text: 'task done', status: 'done' },
-      { id: 4, type: 'task', created: getDate(), text: 'task done', status: 'done' },
-      { id: 5, type: 'task', created: getDate(), text: 'ask failed', status: 'failed' },
-      { id: 6, type: 'task', created: getDate(), text: 'task failed', status: 'failed' },
-      { id: 7, type: 'note', created: getDate(), text: 'note' },
-      { id: 8, type: 'note', created: getDate(), text: 'multiline\n\n\nitems\n\n\n\n\n\n\n\n\n\n\n\nis allowed' },
+      { id: 1, type: 'task', created: getDate(), text: 'normal tasks' },
+      { id: 2, type: 'task', created: getDate(), text: 'normal tasks' },
+      { id: 3, type: 'task', created: getDate(), text: 'done tasks', status: 'done' },
+      { id: 4, type: 'task', created: getDate(), text: 'done tasks', status: 'done' },
+      { id: 5, type: 'task', created: getDate(), text: 'failed tasks', status: 'failed' },
+      { id: 6, type: 'task', created: getDate(), text: 'failed tasks', status: 'failed' },
+      { id: 7, type: 'note', created: getDate(), text: 'notes' },
+      { id: 8, type: 'note', created: getDate(), text: 'multiline\n\n\nitems\n\n\n\n\n\nis allowed' },
     ];
 
     this.saveConfig();

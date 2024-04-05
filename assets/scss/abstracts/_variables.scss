@@ -61,24 +61,15 @@ $theme-items-shadow: $theme-black-3;
 // item
 $theme-item-content-fg: $theme-black;
 
-// items input
-$theme-items-input: $theme-gray;
-
-// inputs, buttons
+// inputs
 $theme-button: $theme-blue;
 
-$theme-input-responsive-outline: $theme-cyan;
-$theme-input-default: $theme-gray-2;
-
 // input type
-$theme-input-type: $theme-input-default;
-$theme-input-type-hover: $theme-gray-3;
 $theme-input-type-list: $theme-gray-2;
-$theme-input-type-item: $theme-gray-1;
 
+// inputs responsive
+$theme-input-responsive-outline: $theme-cyan;
 $theme-button-responsive-hover: $theme-hover;
-$theme-button-default: $theme-input-default;
-$theme-button-default-hover: $theme-gray-3;
 
 // types
 $theme-types: (

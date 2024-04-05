@@ -25,6 +25,7 @@ class Interface {
 
     // add item
     this.itemBtn.addEventListener('click', this.newItem);
+    this.itemType.addEventListener('click', this.toggleTypeList);
     this.itemTypeList.addEventListener('click', this.changeItemType);
     this.itemText.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' && !e.shiftKey) {
@@ -45,7 +46,7 @@ class Interface {
   // group input
   hideGroupName() {
     // change btn to close
-    this.groupBtn.classList.remove('btn-close');
+    this.groupBtn.classList.remove('button-active');
 
     // hide group name
     this.groupName.classList.remove('input-show');
@@ -55,7 +56,7 @@ class Interface {
 
   showGroupName() {
     // change btn to open
-    this.groupBtn.classList.add('btn-close');
+    this.groupBtn.classList.add('button-active');
 
     // show group name
     this.groupName.classList.add('input-show');
@@ -90,6 +91,10 @@ class Interface {
   };
 
   // item type
+  toggleTypeList = () => {
+    this.itemTypeList.classList.toggle('list__show');
+  };
+
   changeItemType = (e) => {
     const target = e.target.tagName.toLowerCase() === 'li' ? e.target : e.target.parentNode;
 
@@ -99,6 +104,7 @@ class Interface {
       classList.shift();
 
       this.itemType.className = '';
+      // change theme to item type
       this.itemType.classList.add(...classList);
       this.itemType.innerText = target.innerText.trim();
 
@@ -109,8 +115,7 @@ class Interface {
       this.itemBtn.classList.add(...classList);
 
       // hide list for a short time
-      this.itemTypeList.classList.add('list__hide');
-      setTimeout(() => this.itemTypeList.classList.remove('list__hide'), 200);
+      this.itemTypeList.classList.remove('list__show');
 
       // focus on item text
       this.itemText.focus();
@@ -123,7 +128,7 @@ class Interface {
     if (target.tagName.toLowerCase() === 'span') target = target.parentNode;
 
     // runs when close btn clicked
-    if (target.classList.contains('btn-close')) {
+    if (target.classList.contains('button-active')) {
       this.hideGroupName();
       return;
     }
