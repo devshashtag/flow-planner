@@ -27,7 +27,7 @@ class Interface {
     this.itemBtn.addEventListener('click', this.newItem);
     this.itemTypeList.addEventListener('click', this.changeItemType);
     this.itemText.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
+      if (e.key === 'Enter' && !e.shiftKey) {
         e.preventDefault();
         this.newItem();
       }
@@ -65,6 +65,7 @@ class Interface {
   // items list
   updateItemsList() {
     this.itemsList.replaceChildren(...this.getItemElements());
+    this.itemText.innerText = '';
     this.itemText.focus();
   }
 
@@ -146,7 +147,7 @@ class Interface {
         // reload groups and it's items after adding new group
         this.updateGroupsList();
         this.updateItemsList();
-      }
+      } else if (e.key === 'Enter') e.preventDefault();
     });
   };
 
