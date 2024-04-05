@@ -67,9 +67,11 @@ main.main {
       .item__text {
         display: flex;
         align-items: center;
+        text-transform: capitalize;
+        word-break: break-all;
+        font-size: inherit;
         padding: 0.7rem 1rem;
         width: 100%;
-        word-break: break-all;
       }
 
       // types

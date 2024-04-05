@@ -5,5 +5,5 @@ export const storage = new Storage();
 export const ui = new Interface();
 
 window.addEventListener('DOMContentLoaded', () => {
-  // storage.devConfig();
+  storage.devConfig();
 });
