@@ -54,8 +54,6 @@ main.main {
         align-items: center;
         justify-content: center;
 
-        background-color: $theme-item-content;
-        color: $theme-item-content-fg;
         padding: 0.7rem 2rem;
         min-width: 8rem;
       }
@@ -72,48 +70,6 @@ main.main {
         font-size: inherit;
         padding: 0.7rem 1rem;
         width: 100%;
-      }
-
-      // types
-      &.type__task {
-        background-color: $theme-task-op;
-        color: $theme-task;
-
-        &::before,
-        &::after {
-          background-color: $theme-task;
-        }
-      }
-
-      &.type__note {
-        background-color: $theme-note-op;
-        color: $theme-note;
-
-        &::before,
-        &::after {
-          background-color: $theme-note;
-        }
-      }
-
-      // status
-      &.type__task.task--done {
-        background-color: $theme-task-done-op;
-        color: $theme-task-done;
-
-        &::before,
-        &::after {
-          background-color: $theme-task-done;
-        }
-      }
-
-      &.type__task.task--failed {
-        background-color: $theme-task-failed-op;
-        color: $theme-task-failed;
-
-        &::before,
-        &::after {
-          background-color: $theme-task-failed;
-        }
       }
     }
   }

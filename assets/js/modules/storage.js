@@ -85,11 +85,12 @@ class Storage {
     this.config = {
       groups: [],
       items: {},
-      types: {
-        task: {
-          status: ['done', 'failed'],
-        },
-      },
+      types: [
+        { type: 'task', status: '', selected: true },
+        { type: 'task', status: 'done' },
+        { type: 'task', status: 'failed' },
+        { type: 'note', status: '' },
+      ],
       counters: {
         groups: 6,
         items: 9,

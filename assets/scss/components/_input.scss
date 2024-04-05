@@ -98,32 +98,10 @@
 
   .list__item {
     cursor: pointer;
-    background-color: $theme-input-type-item;
     padding: 0.6rem 2rem;
     text-align: center;
     width: 100%;
     border-radius: 1rem;
-  }
-
-  // types
-  .type__task {
-    color: $theme-task;
-    background-color: $theme-task-op;
-
-    &.status__done {
-      color: $theme-task-done;
-      background-color: $theme-task-done-op;
-    }
-
-    &.status__failed {
-      color: $theme-task-failed;
-      background-color: $theme-task-failed-op;
-    }
-  }
-
-  .type__note {
-    color: $theme-note;
-    background-color: $theme-note-op;
   }
 }
 

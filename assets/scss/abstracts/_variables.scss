@@ -59,7 +59,6 @@ $theme-items-shadow: $theme-black-3;
 
 // list
 // item
-$theme-item-content: $theme-gray-4;
 $theme-item-content-fg: $theme-black;
 
 // items input
@@ -82,13 +81,14 @@ $theme-button-default: $theme-input-default;
 $theme-button-default-hover: $theme-gray-3;
 
 // types
-// task
-$theme-task: $theme-white;
-$theme-task-op: unquote($theme-white + $theme-opacity);
-$theme-task-failed: $theme-red;
-$theme-task-failed-op: unquote($theme-red + $theme-opacity);
-$theme-task-done: $theme-green;
-$theme-task-done-op: unquote($theme-green + $theme-opacity);
-// note
-$theme-note: $theme-yellow;
-$theme-note-op: unquote($theme-yellow + $theme-opacity);
+$theme-types: (
+  task: (
+    task: $theme-white,
+    // status
+    done: $theme-green,
+    failed: $theme-red,
+  ),
+  note: (
+    note: $theme-yellow,
+  ),
+);

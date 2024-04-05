@@ -102,6 +102,12 @@ class Interface {
       this.itemType.classList.add(...classList);
       this.itemType.innerText = target.innerText.trim();
 
+      this.itemText.className = 'input-default';
+      this.itemText.classList.add(...classList);
+
+      this.itemBtn.className = 'button-default';
+      this.itemBtn.classList.add(...classList);
+
       // hide list for a short time
       this.itemTypeList.classList.add('list__hide');
       setTimeout(() => this.itemTypeList.classList.remove('list__hide'), 200);
@@ -158,7 +164,7 @@ class Interface {
     const groupId = storage.getActiveGroupId();
     const text = this.itemText.innerText.trim();
     const type = this.itemType.className.match(/type__(\w+)/)[1];
-    let status = this.itemType.className.match(/status__(\w+)/);
+    let status = this.itemType.className.match(/status--(\w+)/);
     status = status ? status[1] : '';
 
     // focus text input
@@ -208,7 +214,7 @@ class Interface {
     // classes
     element.classList.add('list__item');
     element.classList.add(`type__${item.type}`);
-    if (item.status) element.classList.add(`${item.type}--${item.status}`);
+    if (item.status) element.classList.add(`status--${item.status}`);
     textElement.classList.add('item__text');
 
     // item data
