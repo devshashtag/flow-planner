@@ -22,7 +22,9 @@
         <div class="groups__options">
           <!-- new -->
           <div class="options__new">
+            <!-- name -->
             <div class="input-responsive" id="group-name" contenteditable="true"></div>
+            <!-- btn -->
             <button class="button-responsive" id="group-btn"><span>+</span></button>
           </div>
         </div>
@@ -38,7 +40,21 @@
           <ul class="items__list" id="items-list"></ul>
           <!-- input -->
           <div class="items__input">
+            <!-- text -->
             <div class="input-default" id="item-text" contenteditable="true"></div>
+            <!-- type -->
+            <div class="input-type">
+              <!-- selected -->
+              <div class="type__task" id="item-type">task</div>
+              <!-- list -->
+              <ul id="type-list">
+                <li class="list__item type__task">task</li>
+                <li class="list__item type__task status__done">task done</li>
+                <li class="list__item type__task status__failed">task failed</li>
+                <li class="list__item type__note">note</li>
+              </ul>
+            </div>
+            <!-- btn -->
             <button class="button-default" id="item-btn"><span>+</span></button>
           </div>
         </section>

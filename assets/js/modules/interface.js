@@ -11,6 +11,8 @@ class Interface {
     // items
     this.itemsList = document.getElementById('items-list');
     this.itemText = document.getElementById('item-text');
+    this.itemType = document.getElementById('item-type');
+    this.itemTypeList = document.getElementById('type-list');
     this.itemBtn = document.getElementById('item-btn');
 
     // show groups, items
@@ -23,6 +25,7 @@ class Interface {
 
     // add item
     this.itemBtn.addEventListener('click', this.newItem);
+    this.itemTypeList.addEventListener('click', this.changeItemType);
     this.itemText.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
         e.preventDefault();
@@ -31,7 +34,7 @@ class Interface {
     });
 
     // change active group
-    this.groupsList.addEventListener('click', this.updateActiveGroup);
+    this.groupsList.addEventListener('click', this.changeActiveGroup);
   }
 
   // group list
@@ -66,7 +69,7 @@ class Interface {
   }
 
   // active group
-  updateActiveGroup = (e) => {
+  changeActiveGroup = (e) => {
     const target = e.target;
 
     if (target.classList.contains('list__group')) {
@@ -82,6 +85,27 @@ class Interface {
       // reload items from new active group
       this.updateGroupsList();
       this.updateItemsList();
+    }
+  };
+
+  // item type
+  changeItemType = (e) => {
+    const target = e.target.tagName.toLowerCase() === 'li' ? e.target : e.target.parentNode;
+
+    if (target.classList.contains('list__item')) {
+      const classList = Array.from(target.classList);
+      classList.shift();
+
+      this.itemType.className = '';
+      this.itemType.classList.add(...classList);
+      this.itemType.innerText = target.innerText.trim();
+
+      // hide list for a short time
+      this.itemTypeList.classList.add('list__hide');
+      setTimeout(() => this.itemTypeList.classList.remove('list__hide'), 200);
+
+      // focus on item text
+      this.itemText.focus();
     }
   };
 
@@ -128,10 +152,12 @@ class Interface {
 
   // new item
   newItem = () => {
-    // groupListElm.addEventListener('click', changeActiveGroup);
+    const date = getDate();
     const groupId = storage.getActiveGroupId();
     const text = this.itemText.innerText.trim();
-    const date = getDate();
+    const type = this.itemType.className.match(/type__(\w+)/)[1];
+    let status = this.itemType.className.match(/status__(\w+)/);
+    status = status ? status[1] : '';
 
     // focus text input
     this.itemText.focus();
@@ -141,9 +167,10 @@ class Interface {
 
     // new item
     const item = {
-      type: 'task',
-      created: date,
       text: text,
+      type: type,
+      status: status,
+      created: date,
     };
 
     // save item

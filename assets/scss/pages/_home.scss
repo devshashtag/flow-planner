@@ -28,7 +28,7 @@ main.main {
   }
 
   // list
-  .items__list {
+  .main__items > .items__list {
     height: 100%;
 
     display: flex;
@@ -40,78 +40,78 @@ main.main {
 
     overflow: auto;
     padding: 1rem;
-  }
 
-  // item
-  .list__item {
-    display: flex;
-    scroll-snap-align: start;
-
-    &::before,
-    &::after {
-      content: attr(data-content);
-      cursor: pointer;
-
+    // item
+    .list__item {
       display: flex;
-      align-items: center;
-      justify-content: center;
-
-      background-color: $theme-item-content;
-      color: $theme-item-content-fg;
-      padding: 0.7rem 2rem;
-      min-width: 8rem;
-    }
-
-    &::after {
-      content: attr(data-date);
-    }
-
-    .item__text {
-      display: flex;
-      align-items: center;
-      padding: 0.7rem 1rem;
-      width: 100%;
-    }
-
-    // types
-    &.type__task {
-      background-color: $theme-task-op;
-      color: $theme-task;
+      scroll-snap-align: start;
 
       &::before,
       &::after {
-        background-color: $theme-task;
+        content: attr(data-content);
+        cursor: pointer;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background-color: $theme-item-content;
+        color: $theme-item-content-fg;
+        padding: 0.7rem 2rem;
+        min-width: 8rem;
       }
-    }
 
-    &.type__note {
-      background-color: $theme-note-op;
-      color: $theme-note;
-
-      &::before,
       &::after {
-        background-color: $theme-note;
+        content: attr(data-date);
       }
-    }
 
-    // status
-    &.type__task.task--done {
-      background-color: $theme-task-done-op;
-      color: $theme-task-done;
-
-      &::before,
-      &::after {
-        background-color: $theme-task-done;
+      .item__text {
+        display: flex;
+        align-items: center;
+        padding: 0.7rem 1rem;
+        width: 100%;
       }
-    }
 
-    &.type__task.task--failed {
-      background-color: $theme-task-failed-op;
-      color: $theme-task-failed;
+      // types
+      &.type__task {
+        background-color: $theme-task-op;
+        color: $theme-task;
 
-      &::before,
-      &::after {
-        background-color: $theme-task-failed;
+        &::before,
+        &::after {
+          background-color: $theme-task;
+        }
+      }
+
+      &.type__note {
+        background-color: $theme-note-op;
+        color: $theme-note;
+
+        &::before,
+        &::after {
+          background-color: $theme-note;
+        }
+      }
+
+      // status
+      &.type__task.task--done {
+        background-color: $theme-task-done-op;
+        color: $theme-task-done;
+
+        &::before,
+        &::after {
+          background-color: $theme-task-done;
+        }
+      }
+
+      &.type__task.task--failed {
+        background-color: $theme-task-failed-op;
+        color: $theme-task-failed;
+
+        &::before,
+        &::after {
+          background-color: $theme-task-failed;
+        }
       }
     }
   }
@@ -121,8 +121,7 @@ main.main {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 1rem;
-    overflow: hidden;
+    gap: 0.1rem;
     margin: 1rem;
   }
 }
