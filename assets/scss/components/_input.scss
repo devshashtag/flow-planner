@@ -4,7 +4,7 @@
   text-transform: capitalize;
   white-space: nowrap;
   font-size: inherit;
-  overflow: hidden;
+  overflow: auto;
   color: inherit;
   width: 100%;
 
@@ -32,6 +32,7 @@
 .input-default {
   background-color: $theme-input-default;
   padding: 1rem;
+  max-height: 10rem;
 }
 
 // input type
@@ -42,10 +43,10 @@
   text-transform: capitalize;
   white-space: nowrap;
   font-size: inherit;
+  height: 100%;
 
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
 
   @extend .no-select;
 
@@ -149,6 +150,7 @@
 }
 
 .button-default {
+  height: 100%;
   background-color: $theme-button-default;
 
   &:hover {

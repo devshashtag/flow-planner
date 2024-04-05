@@ -95,6 +95,7 @@ class Interface {
 
     if (target.classList.contains('list__item')) {
       const classList = Array.from(target.classList);
+      // remove list__item
       classList.shift();
 
       this.itemType.className = '';
