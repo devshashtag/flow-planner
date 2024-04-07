@@ -149,8 +149,8 @@ class Interface {
 
         // add new group
         const group = {
-          name: name,
           id: storage.getGroupId(),
+          name: name,
           active: true,
         };
 
@@ -181,8 +181,8 @@ class Interface {
     // new item
     const item = {
       id: storage.getItemId(),
-      text: text,
       type: type,
+      text: text,
       status: status,
       created: date,
     };

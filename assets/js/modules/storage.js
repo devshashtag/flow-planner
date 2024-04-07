@@ -80,46 +80,6 @@ class Storage {
     this.setGroupItems(groupItems);
     this.saveConfig();
   }
-
-  devConfig() {
-    this.config = {
-      groups: [],
-      items: {},
-      types: [
-        { type: 'task', status: '', selected: true },
-        { type: 'task', status: 'done' },
-        { type: 'task', status: 'failed' },
-        { type: 'note', status: '' },
-      ],
-      counters: {
-        groups: 6,
-        items: 9,
-      },
-    };
-
-    const groups = [
-      { name: 'Daily Tasks', id: 1, active: true },
-      { name: 'Weekly Tasks', id: 2 },
-      { name: 'Monthly Tasks', id: 3 },
-      { name: 'Habits', id: 4 },
-      { name: 'Routines', id: 5 },
-    ];
-
-    groups.forEach((group) => this.newGroup(group));
-
-    this.config.items[1] = [
-      { id: 1, type: 'task', created: getDate(), text: 'normal tasks' },
-      { id: 2, type: 'task', created: getDate(), text: 'normal tasks' },
-      { id: 3, type: 'task', created: getDate(), text: 'done tasks', status: 'done' },
-      { id: 4, type: 'task', created: getDate(), text: 'done tasks', status: 'done' },
-      { id: 5, type: 'task', created: getDate(), text: 'failed tasks', status: 'failed' },
-      { id: 6, type: 'task', created: getDate(), text: 'failed tasks', status: 'failed' },
-      { id: 7, type: 'note', created: getDate(), text: 'notes' },
-      { id: 8, type: 'note', created: getDate(), text: 'multiline\n\n\nitems\n\n\n\n\n\nis allowed' },
-    ];
-
-    this.saveConfig();
-  }
 }
 
 export default Storage;
