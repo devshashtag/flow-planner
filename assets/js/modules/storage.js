@@ -5,15 +5,18 @@ class Storage {
     const config = {
       groups: [],
       items: {},
-      types: [
-        { type: 'task', status: '', selected: true },
-        { type: 'task', status: 'done' },
-        { type: 'task', status: 'failed' },
-        { type: 'note', status: '' },
-      ],
+      types: {
+        task: { id: 1, symbol: '-', type: 'task', selected: true },
+        done: { id: 2, symbol: '+', type: 'task', status: 'done' },
+        failed: { id: 3, symbol: 'x', type: 'task', status: 'failed' },
+        note: { id: 4, symbol: '!', type: 'note' },
+        goal: { id: 5, symbol: '#', type: 'goal' },
+        routine: { id: 6, symbol: '=', type: 'routine' },
+      },
       counters: {
         groups: 1,
         items: 1,
+        types: 7,
       },
     };
 
@@ -41,6 +44,10 @@ class Storage {
     return this.config.items[this.getActiveGroupId()] || [];
   }
 
+  getTypes() {
+    return Object.values(this.config.types);
+  }
+
   setGroupItems(items) {
     this.config.items[this.getActiveGroupId()] = items;
   }
@@ -55,6 +62,17 @@ class Storage {
     for (const group of this.config.groups) {
       if (group.active) delete group.active;
       if (group.id === +id) group.active = true;
+    }
+
+    this.saveConfig();
+  }
+
+  setSelectedType(id) {
+    for (const key in this.config.types) {
+      const type = this.config.types[key];
+
+      if (type.selected) delete this.config.types[key].selected;
+      if (type.id === +id) this.config.types[key].selected = true;
     }
 
     this.saveConfig();

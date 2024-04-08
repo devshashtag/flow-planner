@@ -1,16 +1,16 @@
 // sizes
-$theme-opacity: '30';
+$theme-opacity: '40';
 $app-max-width: 1980px;
 $theme-transition: 0.2s;
 
 // colors
-$theme-white: #dadada;
+$theme-white: #f2f2f2;
 $theme-red: #f45757;
-$theme-green: #60e082;
-$theme-yellow: #f8de9f;
-$theme-cyan: #93f9e9;
-$theme-pink: #ea41ea;
+$theme-green: #8efe6f;
+$theme-yellow: #ffea8a;
+$theme-cyan: #93faa3;
 $theme-blue: #759af7;
+$theme-orange: #f7a075;
 
 // black
 $theme-black: #0d0d0d;
@@ -81,5 +81,11 @@ $theme-types: (
   ),
   note: (
     note: $theme-yellow,
+  ),
+  goal: (
+    goal: $theme-cyan,
+  ),
+  routine: (
+    routine: $theme-orange,
   ),
 );

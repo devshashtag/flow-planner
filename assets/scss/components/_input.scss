@@ -108,6 +108,7 @@
   }
 
   &.button-active span {
+    display: inline-block;
     transform: rotate(45deg);
   }
 }

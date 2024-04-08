@@ -3,22 +3,11 @@
     color: map-get($value, #{$type});
     background-color: unquote(map-get($value, #{$type}) + $theme-opacity);
 
-    &::before,
-    &::after {
-      color: $theme-item-content-fg;
-      background-color: map-get($value, #{$type});
-    }
-
     @each $status, $color in $value {
       @if $type != $status {
         &.status--#{$status} {
           color: $color;
           background-color: unquote($color + $theme-opacity);
-
-          &::before,
-          &::after {
-            background-color: $color;
-          }
         }
       }
     }

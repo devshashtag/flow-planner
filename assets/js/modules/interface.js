@@ -15,9 +15,10 @@ class Interface {
     this.itemTypeList = document.getElementById('type-list');
     this.itemBtn = document.getElementById('item-btn');
 
-    // show groups, items
+    // show groups, items, types
     this.updateGroupsList();
     this.updateItemsList();
+    this.updateTypesList();
 
     // events
     // add group
@@ -43,6 +44,18 @@ class Interface {
     this.groupsList.replaceChildren(...this.getGroupElements());
   }
 
+  // items list
+  updateItemsList() {
+    this.itemsList.replaceChildren(...this.getItemElements());
+    this.itemText.innerText = '';
+    this.itemText.focus();
+  }
+
+  // types list
+  updateTypesList() {
+    this.itemTypeList.replaceChildren(...this.getTypeElements());
+  }
+
   // group input
   hideGroupName() {
     // change btn to close
@@ -61,13 +74,6 @@ class Interface {
     // show group name
     this.groupName.classList.add('input-show');
     setTimeout(() => this.groupName.focus(), 50);
-  }
-
-  // items list
-  updateItemsList() {
-    this.itemsList.replaceChildren(...this.getItemElements());
-    this.itemText.innerText = '';
-    this.itemText.focus();
   }
 
   // active group
@@ -103,8 +109,8 @@ class Interface {
       // remove list__item
       classList.shift();
 
-      this.itemType.className = '';
       // change theme to item type
+      this.itemType.className = '';
       this.itemType.classList.add(...classList);
       this.itemType.innerText = target.innerText.trim();
 
@@ -116,6 +122,9 @@ class Interface {
 
       // hide list for a short time
       this.itemTypeList.classList.remove('list__show');
+
+      // set selected type
+      storage.setSelectedType(target.dataset.id);
 
       // focus on item text
       this.itemText.focus();
@@ -214,27 +223,76 @@ class Interface {
 
   getItemElement(item) {
     const element = document.createElement('li');
-    const textElement = document.createElement('div');
+    const symbol = document.createElement('span');
+    const text = document.createElement('span');
+    const time = document.createElement('span');
+    const date = document.createElement('span');
 
     // classes
+    // item
     element.classList.add('list__item');
     element.classList.add(`type__${item.type}`);
     if (item.status) element.classList.add(`status--${item.status}`);
-    textElement.classList.add('item__text');
 
-    // item data
-    element.dataset.time = item.created.time;
-    element.dataset.date = item.created.date;
+    // infos
+    symbol.classList.add('item__symbol');
+    text.classList.add('item__text');
+    time.classList.add('item__time');
+    date.classList.add('item__date');
+
+    // add to dom
+    element.append(symbol, text, time, date);
+
+    // item infos
     element.dataset.id = item.id;
-
-    // text
-    textElement.innerText = item.text;
-
-    // add text to element
-    element.appendChild(textElement);
+    symbol.innerText = storage.config.types[item.status || item.type]?.symbol ?? '?';
+    symbol.title = (item.type + ' ' + item.status).trim();
+    text.innerText = item.text;
+    time.innerText = item.created.time;
+    date.innerText = item.created.date;
 
     return element;
   }
+
+  getTypeElement = (item) => {
+    const element = document.createElement('li');
+    const type = item.type;
+    const status = item.status;
+
+    const text = status ? type + ' ' + status : type;
+
+    // classes
+    element.classList.add('list__item');
+    element.classList.add(`type__${type}`);
+    if (status) element.classList.add(`status--${status}`);
+
+    // data-id
+    element.dataset.id = item.id;
+
+    // selected
+    if (item.selected) {
+      const classList = Array.from(element.classList);
+
+      // remove list__item
+      classList.shift();
+
+      // change theme to item type
+      this.itemType.className = '';
+      this.itemType.classList.add(...classList);
+      this.itemType.innerText = text.trim();
+
+      this.itemText.className = 'input-default';
+      this.itemText.classList.add(...classList);
+
+      this.itemBtn.className = 'button-default';
+      this.itemBtn.classList.add(...classList);
+    }
+
+    // text
+    element.innerText = text.trim();
+
+    return element;
+  };
 
   getGroupElements() {
     const groups = storage.getGroups();
@@ -244,6 +302,11 @@ class Interface {
   getItemElements() {
     const items = storage.getGroupItems();
     return items.map(this.getItemElement);
+  }
+
+  getTypeElements() {
+    const types = storage.getTypes();
+    return types.map(this.getTypeElement);
   }
 }
 
