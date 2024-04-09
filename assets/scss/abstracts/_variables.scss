@@ -1,15 +1,15 @@
 // sizes
-$theme-opacity: '40';
+$theme-opacity: '50';
 $app-max-width: 1980px;
 $theme-transition: 0.2s;
 
 // colors
-$theme-white: #f2f2f2;
+$theme-white: #c0c0c0;
 $theme-red: #f45757;
 $theme-green: #8efe6f;
 $theme-yellow: #ffea8a;
-$theme-cyan: #93faa3;
-$theme-blue: #759af7;
+$theme-cyan: #93facd;
+$theme-blue: #b1dbff;
 $theme-orange: #f7a075;
 
 // black
@@ -84,6 +84,9 @@ $theme-types: (
   ),
   goal: (
     goal: $theme-cyan,
+  ),
+  habit: (
+    habit: $theme-blue,
   ),
   routine: (
     routine: $theme-orange,

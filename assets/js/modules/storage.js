@@ -11,7 +11,8 @@ class Storage {
         failed: { id: 3, symbol: 'x', type: 'task', status: 'failed' },
         note: { id: 4, symbol: '!', type: 'note' },
         goal: { id: 5, symbol: '#', type: 'goal' },
-        routine: { id: 6, symbol: '=', type: 'routine' },
+        habit: { id: 6, symbol: '*', type: 'habit' },
+        routine: { id: 7, symbol: '=', type: 'routine' },
       },
       counters: {
         groups: 1,
