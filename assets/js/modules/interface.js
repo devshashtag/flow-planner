@@ -126,6 +126,9 @@ class Interface {
       // set selected type
       storage.setSelectedType(target.dataset.id);
 
+      // update types list
+      this.updateTypesList();
+
       // focus on item text
       this.itemText.focus();
     }
@@ -271,6 +274,7 @@ class Interface {
 
     // selected
     if (item.selected) {
+      element.classList.add('type--active');
       const classList = Array.from(element.classList);
 
       // remove list__item

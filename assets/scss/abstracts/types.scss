@@ -1,13 +1,27 @@
 @each $type, $value in $theme-types {
+  // active
+  .list__item.type__#{$type}.type--active {
+    outline: 0.1rem solid map-get($value, #{$type});
+    box-shadow: 0 0 1rem map-get($value, #{$type}) inset, 0 0 1rem map-get($value, #{$type});
+
+    @each $status, $color in $value {
+      &.status--#{$status} {
+        outline: 0.1rem solid $color;
+        box-shadow: 0 0 1rem $color inset, 0 0 0.5rem $color;
+      }
+    }
+  }
+
+  // type
   .type__#{$type} {
-    color: map-get($value, #{$type});
-    background-color: unquote(map-get($value, #{$type}) + $theme-opacity);
+    color: map-get($value, #{$type}) !important;
+    background-color: unquote(map-get($value, #{$type}) + $theme-opacity) !important;
 
     @each $status, $color in $value {
       @if $type != $status {
         &.status--#{$status} {
-          color: $color;
-          background-color: unquote($color + $theme-opacity);
+          color: $color !important;
+          background-color: unquote($color + $theme-opacity) !important;
         }
       }
     }
@@ -15,13 +29,13 @@
 
   // button
   button:hover.type__#{$type} {
-    color: $theme-item-content-fg;
-    background-color: map-get($value, #{$type});
+    color: $theme-item-content-fg !important;
+    background-color: map-get($value, #{$type}) !important;
 
     @each $status, $color in $value {
       @if $type != $status {
         &.status--#{$status} {
-          background-color: $color;
+          background-color: $color !important;
         }
       }
     }
