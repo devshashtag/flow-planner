@@ -3,7 +3,7 @@ import { getDate } from '/flow-planner/assets/js/modules/functions.js';
 class Storage {
   constructor() {
     const config = {
-      groups: [],
+      groups: [{ id: 1, name: 'Task List', active: true }],
       items: {},
       types: {
         task: { id: 1, symbol: '-', type: 'task', selected: true },
