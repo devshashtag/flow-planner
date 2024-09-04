@@ -15,7 +15,7 @@ class Storage {
         routine: { id: 7, symbol: '=', type: 'routine' },
       },
       counters: {
-        groups: 1,
+        groups: 2,
         items: 1,
         types: 7,
       },
