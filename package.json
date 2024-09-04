@@ -1,7 +1,7 @@
 {
-  "name": "planb",
+  "name": "flow-planner",
   "version": "1.0.0",
-  "description": "planb is simple program to manage your tasks",
+  "description": "effortlessly create, organize, and prioritize tasks to stay on track and achieve your goals",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,13 +10,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DevsHashtag/planb.git"
+    "url": "git+https://github.com/DevsHashtag/FlowpPlanner.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DevsHashtag/planb/issues"
+    "url": "https://github.com/DevsHashtag/FlowpPlanner/issues"
   },
-  "homepage": "https://github.com/DevsHashtag/planb#readme"
+  "homepage": "https://github.com/DevsHashtag/FlowpPlanner#readme"
 }
