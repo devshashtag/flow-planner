@@ -3,7 +3,7 @@ import { getDate } from '/assets/js/modules/functions.js';
 class Storage {
   constructor() {
     const config = {
-      groups: [],
+      groups: [{ id: 1, name: 'Task List', active: true }],
       items: {},
       types: {
         task: { id: 1, symbol: '-', type: 'task', selected: true },
@@ -15,7 +15,7 @@ class Storage {
         routine: { id: 7, symbol: '=', type: 'routine' },
       },
       counters: {
-        groups: 1,
+        groups: 2,
         items: 1,
         types: 7,
       },

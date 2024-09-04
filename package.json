@@ -1,5 +1,5 @@
 {
-  "name": "flow-planner",
+  "name": "planner",
   "version": "1.0.0",
   "description": "effortlessly create, organize, and prioritize tasks to stay on track and achieve your goals",
   "main": "index.js",
@@ -10,13 +10,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DevsHashtag/FlowpPlanner.git"
+    "url": "git+https://github.com/DevsHashtag/planner.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DevsHashtag/FlowpPlanner/issues"
+    "url": "https://github.com/DevsHashtag/planner/issues"
   },
-  "homepage": "https://github.com/DevsHashtag/FlowpPlanner#readme"
+  "homepage": "https://github.com/DevsHashtag/planner#readme"
 }
