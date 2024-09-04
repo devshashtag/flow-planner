@@ -1,4 +1,4 @@
-import { getDate } from '/assets/js/modules/functions.js';
+import { getDate } from '/flow-planner/assets/js/modules/functions.js';
 
 class Storage {
   constructor() {
