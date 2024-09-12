@@ -1,5 +1,5 @@
-import { getDate } from '/flow-planner/assets/js/modules/functions.js';
-import { storage } from '/flow-planner/assets/js/index.js';
+import { getDate } from '/planner/assets/js/modules/functions.js';
+import { storage } from '/planner/assets/js/index.js';
 
 class Interface {
   constructor() {
